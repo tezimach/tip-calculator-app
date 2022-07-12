@@ -7,33 +7,35 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="stylesheet" href="./style.css">
     <title>Tip calculator app</title>
-
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body class="bg-marine font-space-mono">
     <img src="./images/logo.svg" alt="logo">
-    <div>
+    <div class="main-container bg-white">
         <form action="">
           <div>
             <label for="amount">Bill</label>
-            <input type="number" id="amount" name="amount">
-            <span>Select Tip %</span>
-            <button id="5">5%</button>
-            <button id="10">10%</button>
-            <button id="15">15%</button>
-            <button id="25">25%</button>
-            <button id="50">50%</button>
-            <button id="custom">Custom</button>
+            <input class="bg-marine-light" type="number" id="amount" name="amount">
+            <label>Select Tip %</label>
+            <div class="tip-percent-container">
+              <button class="bg-green-dark text-white" id="5">5%</button>
+              <button class="bg-green-dark text-white" id="10">10%</button>
+              <button class="bg-green-dark text-white" id="15">15%</button>
+              <button class="bg-green-dark text-white" id="25">25%</button>
+              <button class="bg-green-dark text-white" id="50">50%</button>
+              <input class="bg-marine-light" type="number" id="custom" name="number" placeholder="Custom"></input>
+            </div>
             <label for="quantity">Number of People</label>
-            <input type="number" id="quantity" name="quantity">
+            <input class="bg-marine-light" type="number" id="quantity" name="quantity">
           </div>
-          <div>
-            <span>Tip Amount</span>
+          <div class="output-container bg-green-extra-dark">
+            <span class="main-span">Tip Amount</span>
             <span>/ person</span>
             <output name="result" for="amount quantity 5 10 15 25 50 custom"></output>
-            <span>Total</span>
-            <span>/ person</span>
+            <span class="main-span">Total</span>
+            <span >/ person</span>
             <output name="result" for="amount quantity 5 10 15 25 50 custom"></output>
-            <button>Reset</button>
+            <button class="bg-green-light text-green-dark">Reset</button>
           </div>
         </form>
     </div>

@@ -1,0 +1,151 @@
+.bg-marine {
+    background-color: hsla(185, 41%, 84%, 1);
+}
+
+.bg-marine-light {
+    background-color: hsla(185, 38%, 97%, 1);
+}
+
+.bg-green-dark {
+    background-color: hsla(183, 100%, 15%, 1);
+}
+
+.bg-green-light {
+    background-color: hsla(172, 67%, 45%, 1);
+}
+
+.bg-green-extra-dark {
+    background-color: hsla(183, 78%, 24%, 1);
+}
+
+.bg-white {
+    background-color: hsla(0, 0%, 100%, 1);
+}
+
+
+.text-green-pale {
+    color: hsla(186, 14%, 43%, 1);
+}
+
+.text-green-dark {
+    color: hsla(183, 100%, 15%, 1);
+}
+
+.text-green-light {
+    color: hsla(172, 67%, 45%, 1);
+}
+
+.text-white {
+    color: hsla(0, 0%, 100%, 1);
+}
+
+.font-space-mono {
+    font-family: "Space Mono", monospace;
+    font-style: normal;
+    font-weight: 700;
+}
+
+button {
+    all: unset;
+    border-radius: 5px;
+    height: 48px;
+    flex-basis: 140px;
+    margin: 0px 0px 16px 16px;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+
+}
+
+body {
+    text-align: center;
+    overflow-x: hidden;
+}
+
+img {
+    margin: 15% 38.4% 41px 38.4%;
+}
+
+.main-container {
+    box-shadow: 0px 32px 43px rgba(79, 166, 175, 0.200735);
+    border-radius: 25px 25px 0px 0px;
+    padding: 32px 0 32px 0;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-left: 8.5% !important;
+    border-radius: 5px;
+    color: hsla(186, 14%, 43%, 1);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+input {
+    display: block;
+    margin: 6px 8.5% 32px 8.5%;
+    border-width: 0px;
+    text-align: right;
+}
+
+::placeholder {
+    font-family: "Space Mono", monospace;
+    font-style: normal;
+    font-weight: 700;
+    color: hsla(183, 100%, 15%, 1);
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.tip-percent-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 8.5% 0px 4.5%;
+    max-width: 471px;
+}
+
+.tip-percent-container input {
+    display: block;
+    border-radius: 5px;
+    height: 48px;
+    flex-basis: 140px;
+    margin: 0px 0px 16px 14px;
+    text-align: center;
+}
+
+.output-container {
+    border-radius: 15px;
+    margin: 0px 6.4% 0px 6.4%;
+    padding-top: 39px;
+    padding-bottom: 24px;
+    max-width: 413px;
+}
+
+span {
+    font-size: 13px;
+    line-height: 19px;
+    color: hsla(183, 15%, 56%, 1);
+    display: block;
+    text-align: left;
+    margin: 0px 6.4% 30px 6.4%;
+}
+
+.main-span {
+    font-size: 16px;
+    line-height: 24px;
+    color: hsla(0, 0%, 100%, 1);
+    margin-bottom: 0px;
+}
+
+.output-container button {
+    font-size: 20px;
+    line-height: 30px;
+    width: 87%;
+    margin: 0px;
+}
