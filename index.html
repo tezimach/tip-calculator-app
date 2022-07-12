@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./restet.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Tip calculator app</title>
+    <title>Tip calculator app</title>
 
-</head>
-<body>
-
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </head>
+  <body>
+    <img src="./images/logo.svg" alt="logo">
+    <div>
+        <form action="">
+          <div>
+            <label for="amount">Bill</label>
+            <input type="number" id="amount" name="amount">
+            <span>Select Tip %</span>
+            <button id="5">5%</button>
+            <button id="10">10%</button>
+            <button id="15">15%</button>
+            <button id="25">25%</button>
+            <button id="50">50%</button>
+            <button id="custom">Custom</button>
+            <label for="quantity">Number of People</label>
+            <input type="number" id="quantity" name="quantity">
+          </div>
+          <div>
+            <span>Tip Amount</span>
+            <span>/ person</span>
+            <output name="result" for="amount quantity 5 10 15 25 50 custom"></output>
+            <span>Total</span>
+            <span>/ person</span>
+            <output name="result" for="amount quantity 5 10 15 25 50 custom"></output>
+            <button>Reset</button>
+          </div>
+        </form>
+    </div>
 </body>
 </html>
