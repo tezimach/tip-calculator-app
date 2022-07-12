@@ -13,32 +13,120 @@
   <body class="bg-marine font-space-mono">
     <img src="./images/logo.svg" alt="logo">
     <div class="main-container bg-white">
-        <form>
+        <form id="my-form" onsubmit="return false" oninput="tip.value=parseInt(amount.value)*parseInt(custom.value)/100/parseInt(quantity.value); total.value=parseInt(amount.value)*(1+parseInt(custom.value)/100)/parseInt(quantity.value)">
           <div>
             <label for="amount">Bill</label>
             <input class="bg-marine-light" type="number" id="amount" name="amount" placeholder="0">
             <label>Select Tip %</label>
             <div class="tip-percent-container">
-              <button class="bg-green-dark text-white" id="5">5%</button>
-              <button class="bg-green-dark text-white" id="10">10%</button>
-              <button class="bg-green-dark text-white" id="15">15%</button>
-              <button class="bg-green-dark text-white" id="25">25%</button>
-              <button class="bg-green-dark text-white" id="50">50%</button>
+              <button id ="5" class="bg-green-dark text-white" id="5">5%</button>
+              <button id ="10" class="bg-green-dark text-white" id="10">10%</button>
+              <button id ="15" class="bg-green-dark text-white" id="15">15%</button>
+              <button id ="25" class="bg-green-dark text-white" id="25">25%</button>
+              <button id ="50" class="bg-green-dark text-white" id="50">50%</button>
               <input class="bg-marine-light" type="number" id="custom" name="number" placeholder="Custom"></input>
             </div>
             <label for="quantity">Number of People</label>
             <input class="bg-marine-light number-people" type="number" id="quantity" name="quantity" placeholder="0">
+            <script>
+              let percent = document.body.addEventListener("click", event => {
+                if (event.target.nodeName == "BUTTON") {
+                  let num = event.target.textContent;
+                  let percent = parseInt(num)/100;
+                  console.log (percent);
+                  }
+              });
+            </script>
           </div>
           <div class="output-container bg-green-extra-dark">
-            <span class="main-span">Tip Amount</span>
-            <span>/ person</span>
-            <output name="tip" for="amount quantity 5 10 15 25 50 custom"></output>
-            <span class="main-span">Total</span>
-            <span >/ person</span>
-            <output name="total" for="amount quantity 5 10 15 25 50 custom"></output>
+            <div class="text-container">
+              <span class="main-span">Tip Amount</span>
+              <span>/ person</span>
+            </div>
+            <output form="my-form" class="text-green-light font-space-mono" name="tip" for="amount quantity 5 10 15 25 50 custom"></output>
+            <div class="text-container">
+              <span class="main-span">Total</span>
+              <span >/ person</span>
+            </div>
+            <output id="total" form="my-form" class="text-green-light font-space-mono" name="total" for="amount quantity 5 10 15 25 50 custom"></output>
             <button class="bg-green-light text-green-dark font-space-mono">Reset</button>
           </div>
         </form>
     </div>
 </body>
+<script>
+    
+  
+  let firstBtn = document.getElementById("5");
+  let secondBtn = document.getElementById("10");
+  let thirdBtn = document.getElementById("15");
+  let fourthBtn = document.getElementById("25");
+  let fifthBtn = document.getElementById("50");
+  
+  firstBtn.addEventListener('click', event => {
+  	event.target.style.backgroundColor = 'hsla(172, 67%, 45%, 1)';
+	  event.target.style.color = 'hsla(183, 100%, 15%, 1)';
+    secondBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    secondBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    thirdBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    thirdBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    fourthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    fourthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    fifthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    fifthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+ });
+  
+  secondBtn.addEventListener('click', event => {
+  	event.target.style.backgroundColor = 'hsla(172, 67%, 45%, 1)';
+    event.target.style.color = 'hsla(183, 100%, 15%, 1)';
+    firstBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    firstBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    thirdBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    thirdBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    fourthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    fourthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    fifthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    fifthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+});
+
+thirdBtn.addEventListener('click', event => {
+  	event.target.style.backgroundColor = 'hsla(172, 67%, 45%, 1)';
+    event.target.style.color = 'hsla(183, 100%, 15%, 1)';
+    firstBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    firstBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    secondBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    secondBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    fourthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    fourthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    fifthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    fifthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+});
+
+fourthBtn.addEventListener('click', event => {
+  	event.target.style.backgroundColor = 'hsla(172, 67%, 45%, 1)';
+    event.target.style.color = 'hsla(183, 100%, 15%, 1)';
+    firstBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    firstBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    secondBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    secondBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    thirdBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    thirdBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    fifthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    fifthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+});
+
+fifthBtn.addEventListener('click', event => {
+  	event.target.style.backgroundColor = 'hsla(172, 67%, 45%, 1)';
+    event.target.style.color = 'hsla(183, 100%, 15%, 1)';
+    firstBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    firstBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    secondBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    secondBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    thirdBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    thirdBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+    fourthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
+    fourthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+});
+
+</script>
 </html>
