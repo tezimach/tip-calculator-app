@@ -12,10 +12,10 @@
   <body class="bg-marine font-space-mono">
     <img src="./images/logo.svg" alt="logo">
     <div class="main-container bg-white">
-        <form action="">
+        <form>
           <div>
             <label for="amount">Bill</label>
-            <input class="bg-marine-light" type="number" id="amount" name="amount">
+            <input class="bg-marine-light" type="number" id="amount" name="amount" placeholder="0">
             <label>Select Tip %</label>
             <div class="tip-percent-container">
               <button class="bg-green-dark text-white" id="5">5%</button>
@@ -26,16 +26,16 @@
               <input class="bg-marine-light" type="number" id="custom" name="number" placeholder="Custom"></input>
             </div>
             <label for="quantity">Number of People</label>
-            <input class="bg-marine-light" type="number" id="quantity" name="quantity">
+            <input class="bg-marine-light number-people" type="number" id="quantity" name="quantity" placeholder="0">
           </div>
           <div class="output-container bg-green-extra-dark">
             <span class="main-span">Tip Amount</span>
             <span>/ person</span>
-            <output name="result" for="amount quantity 5 10 15 25 50 custom"></output>
+            <output name="tip" for="amount quantity 5 10 15 25 50 custom"></output>
             <span class="main-span">Total</span>
             <span >/ person</span>
-            <output name="result" for="amount quantity 5 10 15 25 50 custom"></output>
-            <button class="bg-green-light text-green-dark">Reset</button>
+            <output name="total" for="amount quantity 5 10 15 25 50 custom"></output>
+            <button class="bg-green-light text-green-dark font-space-mono">Reset</button>
           </div>
         </form>
     </div>

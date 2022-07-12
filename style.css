@@ -92,13 +92,24 @@ input {
     margin: 6px 8.5% 32px 8.5%;
     border-width: 0px;
     text-align: right;
+    width: 75%;
+    height: 48px;
+    border-radius: 5px;
+    background-image: url(./images/icon-dollar.svg);
+    background-repeat: no-repeat;
+    background-position: center left 16px;
+    padding: 0px 16px 0px 16px;
+}
+
+.number-people {
+    background-image: url(./images/icon-person.svg);
 }
 
 ::placeholder {
     font-family: "Space Mono", monospace;
     font-style: normal;
     font-weight: 700;
-    color: hsla(183, 100%, 15%, 1);
+    color: hsla(180, 18%, 40%, 1);
     font-size: 24px;
     line-height: 36px;
 }
@@ -112,11 +123,11 @@ input {
 
 .tip-percent-container input {
     display: block;
-    border-radius: 5px;
-    height: 48px;
     flex-basis: 140px;
     margin: 0px 0px 16px 14px;
     text-align: center;
+    background-image: none;
+    padding: 0px;
 }
 
 .output-container {
@@ -148,4 +159,5 @@ span {
     line-height: 30px;
     width: 87%;
     margin: 0px;
+    text-transform: uppercase;
 }
