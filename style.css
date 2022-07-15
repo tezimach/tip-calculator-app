@@ -65,6 +65,11 @@ input::-webkit-inner-spin-button {
 body {
     text-align: center;
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: -webkit-center;
+    flex-wrap: wrap;
 }
 
 img {
@@ -139,17 +144,17 @@ input {
 
 .output-container {
     border-radius: 15px;
-    margin: 0px 6.4% 0px 6.4%;
+    margin: 0px 8.4% 0px 8.4%;
     padding-top: 39px;
     padding-bottom: 24px;
-    max-width: 413px;
+    max-width: 453px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .text-container {
-    flex-basis: 50%;
+    flex-basis: 36%;
 }
 
 span {
@@ -185,4 +190,63 @@ output {
     text-transform: uppercase;
     flex-basis: 87%;
     margin-left: 6.4%;
+}
+
+@media only screen and (min-width: 1422px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        text-align: -webkit-center;
+        flex-wrap: wrap;
+    }
+    .main-container {
+        margin-bottom: 239px;
+        border-radius: 25px;
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .lable-and-form {
+        flex-basis: 54%;
+    }
+
+    label {
+        margin-left: 6.3% !important;
+    }
+
+    input {
+        margin: 6px 22.3% 32px 4.3%;
+        width: 84%;
+        max-width: 482px;
+    }
+
+    .tip-percent-container {
+        margin: 10px -1.8% 0px 2.2%;
+        max-width: 468px;
+    }
+
+    .tip-percent-container input {
+        margin: 0px 16px 16px 0px;
+        max-width: 482px;
+    }
+
+    .output-container {
+        margin: 0px 2.2% 0px 2.2%;
+        flex-basis: 41%;
+    }
+
+    button:hover {
+        background-color: hsla(172, 61%, 77%, 1);
+        cursor: pointer;
+    }
+
+    input:hover {
+        border-color: hsla(172, 67%, 45%, 1);
+        background-color: hsla(185, 38%, 97%, 1);
+        cursor: pointer;
+    }
 }

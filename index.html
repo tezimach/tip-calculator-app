@@ -13,120 +13,112 @@
   <body class="bg-marine font-space-mono">
     <img src="./images/logo.svg" alt="logo">
     <div class="main-container bg-white">
-        <form id="my-form" onsubmit="return false" oninput="tip.value=parseInt(amount.value)*parseInt(custom.value)/100/parseInt(quantity.value); total.value=parseInt(amount.value)*(1+parseInt(custom.value)/100)/parseInt(quantity.value)">
-          <div>
+        <form id="my-form" onsubmit="return false" >
+          <div class="lable-and-form">
             <label for="amount">Bill</label>
-            <input class="bg-marine-light" type="number" id="amount" name="amount" placeholder="0">
+            <input class="bg-marine-light" type="number" min="1" max="10000" step="1" id="amount" name="amount" placeholder="0" onchange="minMax(this)" onkeyup="numbersOnly(this)">
             <label>Select Tip %</label>
             <div class="tip-percent-container">
-              <button id ="5" class="bg-green-dark text-white" id="5">5%</button>
-              <button id ="10" class="bg-green-dark text-white" id="10">10%</button>
-              <button id ="15" class="bg-green-dark text-white" id="15">15%</button>
-              <button id ="25" class="bg-green-dark text-white" id="25">25%</button>
-              <button id ="50" class="bg-green-dark text-white" id="50">50%</button>
-              <input class="bg-marine-light" type="number" id="custom" name="number" placeholder="Custom"></input>
+              <button type="button" class="bg-green-dark text-white" id="5">5%</button>
+              <button type="button" class="bg-green-dark text-white" id="10">10%</button>
+              <button type="button" class="bg-green-dark text-white" id="15">15%</button>
+              <button type="button" class="bg-green-dark text-white" id="25">25%</button>
+              <button type="button" class="bg-green-dark text-white" id="50">50%</button>
+              <input class="bg-marine-light" type="number" id="custom" name="number" placeholder="Custom" onchange="minMax(this); roundUp(this)" onkeyup="numbersOnly(this)" ></input>
             </div>
             <label for="quantity">Number of People</label>
-            <input class="bg-marine-light number-people" type="number" id="quantity" name="quantity" placeholder="0">
-            <script>
-              let percent = document.body.addEventListener("click", event => {
-                if (event.target.nodeName == "BUTTON") {
-                  let num = event.target.textContent;
-                  let percent = parseInt(num)/100;
-                  console.log (percent);
-                  }
-              });
-            </script>
+            <input class="bg-marine-light number-people" type="number" min="1" max="50" id="quantity" name="quantity" placeholder="0" min="1" max="50" step="1" onchange="minMax(this); roundUp(this)" onkeyup="numbersOnly(this)">
           </div>
           <div class="output-container bg-green-extra-dark">
             <div class="text-container">
               <span class="main-span">Tip Amount</span>
               <span>/ person</span>
             </div>
-            <output form="my-form" class="text-green-light font-space-mono" name="tip" for="amount quantity 5 10 15 25 50 custom"></output>
+            <output id="tip" form="my-form" class="text-green-light font-space-mono" name="tip" for="amount quantity 5 10 15 25 50 custom">$0.00</output>
             <div class="text-container">
               <span class="main-span">Total</span>
               <span >/ person</span>
             </div>
-            <output id="total" form="my-form" class="text-green-light font-space-mono" name="total" for="amount quantity 5 10 15 25 50 custom"></output>
-            <button class="bg-green-light text-green-dark font-space-mono">Reset</button>
+            <output id="total" form="my-form" class="text-green-light font-space-mono" name="total" for="amount quantity 5 10 15 25 50 custom">$0.00</output>
+            <button type="button" id="reset" class="bg-green-light text-green-dark font-space-mono">Reset</button>
           </div>
         </form>
     </div>
 </body>
 <script>
-    
-  
+
   let firstBtn = document.getElementById("5");
   let secondBtn = document.getElementById("10");
   let thirdBtn = document.getElementById("15");
   let fourthBtn = document.getElementById("25");
   let fifthBtn = document.getElementById("50");
-  
-  firstBtn.addEventListener('click', event => {
-  	event.target.style.backgroundColor = 'hsla(172, 67%, 45%, 1)';
-	  event.target.style.color = 'hsla(183, 100%, 15%, 1)';
-    secondBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    secondBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    thirdBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    thirdBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    fourthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    fourthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    fifthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    fifthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
- });
-  
-  secondBtn.addEventListener('click', event => {
-  	event.target.style.backgroundColor = 'hsla(172, 67%, 45%, 1)';
-    event.target.style.color = 'hsla(183, 100%, 15%, 1)';
-    firstBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    firstBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    thirdBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    thirdBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    fourthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    fourthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    fifthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    fifthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+  let customBtn = document.getElementById("custom");
+  let resetBtn = document.getElementById("reset");
+
+
+  let resetStyle = function resTyle (x) {
+    x.classList.remove("bg-green-light");
+    x.classList.remove("text-green-dark");
+  }
+
+  Array.from(document.getElementsByTagName("button")).map((el) => { 
+   el.addEventListener ('click', (event)=> {
+    console.log('click');
+    resetStyle (firstBtn);
+    resetStyle (secondBtn);
+    resetStyle (thirdBtn);
+    resetStyle (fourthBtn);
+    resetStyle (fifthBtn);
+    event.target.classList.add("bg-green-light");
+    event.target.classList.add("text-green-dark");
+    let num = event.target.textContent;
+    let percent = parseInt(num)/100;
+    console.log (percent);
+    document.getElementById("tip").innerHTML = "$0.00";
+    document.getElementById("total").innerHTML = "$0.00";
+    document.getElementById("tip").innerHTML = "$" + Math.round(percent*parseInt(amount.value)/parseInt(quantity.value)*100)/100;
+    document.getElementById("total").innerHTML = "$" + Math.round(parseInt(amount.value)*(1+percent)/parseInt(quantity.value)*100)/100;
+    document.getElementById("custom").value = "";
+    });
+  });
+
+customBtn.addEventListener('input', event => {
+    resetStyle (firstBtn);
+    resetStyle (secondBtn);
+    resetStyle (thirdBtn);
+    resetStyle (fourthBtn);
+    resetStyle (fifthBtn);
+    let num = custom.value;
+    let percent = parseInt(num)/100;
+    console.log (percent);
+    document.getElementById("tip").innerHTML = "$" + Math.round(percent*parseInt(amount.value)/parseInt(quantity.value)*100)/100;
+    document.getElementById("total").innerHTML = "$" + Math.round(parseInt(amount.value)*(1+percent)/parseInt(quantity.value)*100)/100;
 });
 
-thirdBtn.addEventListener('click', event => {
-  	event.target.style.backgroundColor = 'hsla(172, 67%, 45%, 1)';
-    event.target.style.color = 'hsla(183, 100%, 15%, 1)';
-    firstBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    firstBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    secondBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    secondBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    fourthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    fourthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    fifthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    fifthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
+resetBtn.addEventListener('click', event => {
+    document.getElementById("custom").value = "";
+    document.getElementById("tip").innerHTML = "$0.00";
+    document.getElementById("total").innerHTML = "$0.00";
+    document.getElementById("amount").value = "";
+    document.getElementById("quantity").value = "";
 });
 
-fourthBtn.addEventListener('click', event => {
-  	event.target.style.backgroundColor = 'hsla(172, 67%, 45%, 1)';
-    event.target.style.color = 'hsla(183, 100%, 15%, 1)';
-    firstBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    firstBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    secondBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    secondBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    thirdBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    thirdBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    fifthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    fifthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-});
+function minMax (el){
+  if(parseInt(el.value) === 0) {
+    el.value = el.min;
+  }
+  if(parseInt(el.value)>el.max) {
+    el.value = el.max;
+  }
+}
 
-fifthBtn.addEventListener('click', event => {
-  	event.target.style.backgroundColor = 'hsla(172, 67%, 45%, 1)';
-    event.target.style.color = 'hsla(183, 100%, 15%, 1)';
-    firstBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    firstBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    secondBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    secondBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    thirdBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    thirdBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-    fourthBtn.style.backgroundColor = 'hsla(183, 100%, 15%, 1)';
-    fourthBtn.style.color = 'hsla(0, 0%, 100%, 1)';
-});
+function roundUp (el){
+  el.value = Math.round(el.value)
+}
 
+function numbersOnly (el) {
+  let defaultNumber = /[^0-9.]/g;
+  el.value = el.value.replace(defaultNumber, "");
+}
 </script>
 </html>
